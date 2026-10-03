@@ -1,0 +1,26 @@
+# Log de desvios e correções do protocolo (v1.0)
+
+| Data | Tipo | Descrição | Efeito | Tratamento |
+|---|---|---|---|---|
+| 2026-10-02 | Desvio técnico | A política de rede da organização bloqueia o WebSearch e o download direto (curl) tanto na nuvem quanto no ambiente local do Claude | Não foi possível baixar os originais durante a coleta | Fontes lidas por WebFetch (conteúdo processado por modelo). A lista de 609 URLs fica em `fontes/lista_urls_consolidada.tsv`. O script `baixar_fontes.sh` deve ser rodado pelo pesquisador fora do Claude |
+| 2026-10-02 | Desvio técnico | Fontes inacessíveis ao WebFetch: gov.br/MEC (CAPTCHA), DOU/in.gov.br (robots), Portal da Transparência e SIOP (JavaScript), download.inep.gov.br, GEOCAPES, painéis do CNPq | Lacunas nos dois grupos | Registradas nos resumos de cada coletor. As URLs estão no TSV para baixar manualmente |
+| 2026-10-02 | Desvio de escopo (D1) | Usada a função 12 (Educação) da União via SICONFI/Tesouro, no lugar do órgão MEC 26000 | A série não equivale ao orçamento do MEC e não inclui a complementação ao Fundeb (função 28) | Complementação ao Fundeb tratada como série própria. A série do órgão 26000 ficou como lacuna |
+| 2026-10-02 | Decisão (D1) | Deflator: IPCA (IBGE, tabela SIDRA 1737), número-índice de dezembro de cada ano, com base em dez/2025. Corresponde à proposta do protocolo, que não foi contestada | Valores reais aproximados para fluxos anuais | Convenção registrada. A média anual do índice fica como sensibilidade futura |
+| 2026-10-02 | Desvio de classificação (D6) | Criado o grupo "linha_base" para 2017–2018 (governo Temer) | Nenhum. Evita atribuir esses anos ao grupo B | Mantido |
+| 2026-10-02 | Correção (verificação) | FLA-P05: a Emenda 2 ao PL 5.384/2020 foi apresentada na CCJ em 26/09/2023, não no Plenário | Registro corrigido | Aplicada em `extracoes/FLA.csv` |
+| 2026-10-02 | Correção (verificação) | FLA-V12 e FLA-V08: a orientação do Governo estava documentada ("sim"), mas havia sido marcada como indisponível | O índice de alinhamento passa de 10/12 (83,3%) para 11/13 (84,6%) | Aplicada. Pelo critério literal, V06 e V07 foram excluídos de forma coerente |
+| 2026-10-02 | Correção (verificação) | FLA-V26 e FLA-V30 (2023–2026): orientação do governo Lula encontrada ("sim"). FLA-V27: orientação "não", com Flávio registrando "presente" | Contexto 2023–2026: 4/7 (57,1%) | Aplicada |
+| 2026-10-02 | Correção (verificação) | GES-X29: a redação da fórmula do piso estava imprecisa | Título corrigido | Aplicada |
+| 2026-10-02 | Correção (verificação) | PRO-B03: a data, a portaria e o vínculo com a PNA não constam da fonte citada | Status alterado para "parcial" | Aplicada |
+| 2026-10-02 | Correção (verificação) | FIN-A084: o valor é uma diferença calculada entre decretos; faltava a fonte do D11.154 | Fonte FIN-020 incluída | Aplicada |
+| 2026-10-02 | Correção (simetria) | FIN-A088: a redução de 2024 não considerou o D12.204 (valor efetivo −1,671 bi) | Nota no registro; valor padronizado em FIN2 | Aplicada |
+| 2026-10-02 | Complemento (simetria) | Coleta FIN2 com limites de empenho do MEC em todos os anos de 2019 a 2026, pelo mesmo procedimento | Bloqueios comparáveis entre os grupos | Ver `extracoes/FIN2*.csv/md` |
+| 2026-10-02 | Correção de formato | FIN2.csv tinha ";" sem aspas no título | Colunas desalinhadas | Corrigido, com 16 colunas em todas as linhas |
+| 2026-10-02 | 2ª rodada de coleta | Prefixos FIN3, RES2, NOR2, PRO2 e FLA2 foram coletados para preencher lacunas, com o mesmo procedimento nos dois grupos | +87 fontes e +177 registros | Ver `extracoes/*_resumo.md` |
+| 2026-10-02 | Nova rota de dados (D1) | Endpoint SPARQL do SIOP/MPO (nível A) com o orçamento por ação: universidades, IFs, bolsas e FNDCT | Série de universidades e IFs obtida | Conferência pontual: ação 20RK, 2019–2026, igual à consulta original |
+| 2026-10-02 | Classificação (D6) | PISA 2018 da base EdStats do Banco Mundial classificado como nível B, por analogia | Organismos multilaterais não estavam previstos no protocolo | Registrado |
+| 2026-10-02 | Exclusão | Propostas de PLOA (FIN3-A089 a A091) são contexto, não ação efetiva | Não entram na análise | Mantidas só como registro |
+| 2026-10-02 | Nota cruzada | NOR-A29: depois do veto total à Unifron, o Executivo enviou projeto próprio e criou a UFFN (Lei 15.520/2026) | A leitura do veto mudou | Incluído no relatório |
+| 2026-10-03 | Emenda do protocolo (v1.1) | O pesquisador autorizou imprensa de referência para fatos descritivos e exemplos, sempre com link; 2 veículos para fatos contestados | Perfis dos ministros e exemplos | PROTOCOLO_PICOC.md §13 |
+| 2026-10-03 | Nova coleta (D4) | GES2 (fontes A/B, 39) e GES3 (imprensa, 48): perfil dos ministros com rubrica R1–R5 | +87 fontes | GES3 corrige GES2: Godoy efetivado em 18/04/2022; Camilo deixou o governo do CE em abr/2022; R4 de Weintraub = Sim (imprensa) |
+| 2026-10-03 | Enriquecimento com imprensa (v1.1) | IMP1 (orçamento e docentes, 61 fontes), IMP2 (normas e programas, 70), IMP3 (resultados e Flávio, 43). Exemplos inseridos nos dois relatórios com links; valores com 1 só veículo ficaram fora do relatório público | +174 fontes de imprensa | Piso de 2019–2026 incluído no D5 (2019, 2020 e 2021 não confirmados) |

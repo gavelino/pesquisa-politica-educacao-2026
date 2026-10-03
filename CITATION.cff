@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "Se usar estes dados, cite como abaixo."
+title: "Educação: ações efetivas do governo Lula 3 × grupo Bolsonaro (2019–2026) — dados e protocolo"
+authors:
+  - family-names: "Avelino"
+    given-names: "Guilherme Amaral"
+    affiliation: "Universidade Federal do Piauí (UFPI) – SERG"
+date-released: 2026-10-03
+version: "1.1"
+license: CC-BY-4.0
+keywords: [educação, políticas públicas, Brasil, eleições 2026, PICOC, dados abertos]

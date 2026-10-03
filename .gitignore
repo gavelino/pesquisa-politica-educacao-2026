@@ -1,0 +1,6 @@
+.DS_Store
+_arquivo/
+*.tar.gz
+# arquivos originais baixados pelo script (versionar só o manifesto com hashes)
+fontes/originais/*
+!fontes/originais/manifesto.tsv
