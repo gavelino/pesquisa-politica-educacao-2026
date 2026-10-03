@@ -33,6 +33,7 @@ Estudo comparativo das **ações efetivas** em educação federal do governo Lul
 ├── RELATORIO_PRELIMINAR.md    ← versão preliminar (histórico)
 ├── relatorios/                ← PDFs dos relatórios finais (técnico e para o público geral)
 ├── baixar_fontes.sh           ← baixa os ORIGINAIS de todas as fontes e gera manifesto SHA-256
+├── skill/                     ← skill do Claude para replicar o estudo em outros temas e contextos
 ├── fontes/
 │   ├── <ID>.md                ← 1 arquivo por fonte: URL, órgão, data de acesso, nível de evidência e trechos extraídos
 │   ├── indice_fontes.csv      ← índice de todas as fontes
@@ -72,6 +73,36 @@ Estudo comparativo das **ações efetivas** em educação federal do governo Lul
 2. Para conferir um dado, procure o ID (ex.: `FIN3-A065`) em `analise/matriz_consolidada.csv` e abra `fontes/<ID-da-fonte>.md`.
 3. Para baixar os originais, rode `bash baixar_fontes.sh` (ou `bash baixar_fontes.sh FLA` para um só coletor). O script grava status HTTP, tamanho e SHA-256 de cada arquivo em `fontes/originais/manifesto.tsv`. Páginas com CAPTCHA (gov.br) ou que recusam robôs (Diário Oficial) devem ser salvas manualmente.
 4. As consultas orçamentárias do SIOP (SPARQL) estão em `fontes/urls_FIN3.tsv`. Com curl, use a opção `-g`.
+
+## Replicar o estudo em outros contextos (skill do Claude)
+
+A pasta [`skill/`](skill/) traz a skill **`estudo-comparativo-acoes-governo`**, que transforma o método deste estudo num roteiro reutilizável. Com ela, o Claude conduz um novo estudo comparativo (outro tema, outros candidatos, outra esfera de governo ou outro país) com os mesmos passos: protocolo PICOC, coleta simétrica, verificação e relatórios.
+
+### Instalação
+- **Claude (app ou claude.ai):** nas configurações, na seção de Skills, envie o arquivo [`skill/estudo-comparativo-acoes-governo.zip`](skill/estudo-comparativo-acoes-governo.zip).
+- **Claude Code:** copie a pasta `skill/estudo-comparativo-acoes-governo/` para `~/.claude/skills/` (uso pessoal) ou para `.claude/skills/` dentro de um projeto (uso compartilhado).
+
+### Uso
+Descreva o estudo em linguagem natural. A skill é acionada sozinha, ou pode ser chamada pelo nome. Exemplos:
+- "Quero comparar as ações efetivas dos candidatos X e Y em **saúde**, seguindo um protocolo científico."
+- "Use a skill estudo-comparativo-acoes-governo para comparar os dois últimos governos do meu **estado** em **segurança pública**."
+- "Replique o estudo de educação para os candidatos ao governo de <UF> em 2026."
+
+### O que a skill faz
+1. **Protocolo:** define com você o PICOC, as questões de pesquisa, o *proxy* (quando um candidato nunca governou), os níveis de evidência e os controles de viés. O protocolo é congelado antes da coleta.
+2. **Pasta do estudo:** cria a mesma estrutura deste repositório (fontes, extrações em CSV de 16 colunas, log de desvios).
+3. **Coleta:** usa agentes em paralelo, um por dimensão, com os mesmos procedimentos para todos os grupos. A skill lista as rotas de dados públicos brasileiros que funcionaram aqui (Planalto, Senado, Câmara, TCU, Tesouro/SICONFI, SIOP, IBGE) e as que costumam falhar.
+4. **Consolidação e verificação:** consolida e deflaciona os dados, sorteia uma amostra para verificação independente e faz revisões de simetria.
+5. **Relatórios:** produz um relatório técnico e outro para o público geral, com gráficos, grau de confiança e o aviso de validação.
+6. **Replicabilidade:** entrega `baixar_fontes.sh` com manifesto SHA-256 e prepara a publicação.
+
+### O que adaptar para outro contexto
+- **Dimensões.** Ajuste ao tema. Em saúde, por exemplo: financiamento, normas, programas, gestão, profissionais e resultados como mortalidade ou cobertura vacinal.
+- **Fontes oficiais da esfera estudada.** Em estudos estaduais ou municipais: diários oficiais, portais de transparência, tribunais de contas e assembleias legislativas.
+- **Deflator e período.** Mantenha períodos de duração parecida.
+- **Regra de imprensa** (emenda v1.1 deste estudo). Adote ou não, conforme o rigor desejado.
+
+> A skill herda o aviso deste estudo: ela automatiza coleta, verificação e redação para reduzir vieses humanos, mas não substitui a validação humana. Estudos feitos com ela devem informar isso e publicar os dados para auditoria.
 
 ## Limitações principais
 - **Captura das fontes:** as páginas foram lidas por uma ferramenta que processa o conteúdo; daí a necessidade de conferir os originais.
