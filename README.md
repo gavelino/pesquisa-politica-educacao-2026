@@ -1,7 +1,7 @@
 # Educação: ações efetivas do governo Lula 3 × grupo Bolsonaro (2019–2026)
 
 > ### Leia os relatórios
-> 1. **[Relatório para o público geral](relatorios/relatorio_publico_geral.pdf)** (PDF, 7 páginas): os principais resultados em linguagem simples, seguidos de como a pesquisa foi feita.
+> 1. **[Relatório resumido](relatorios/relatorio_publico_geral.pdf)** (PDF, 7 páginas): os principais resultados em linguagem simples, seguidos de como a pesquisa foi feita.
 > 2. **[Relatório técnico completo](relatorios/relatorio_tecnico.pdf)** (PDF, 26 páginas): as sete questões de pesquisa, com gráficos, tabelas, fontes e o grau de confiança de cada conclusão.
 
 Estudo comparativo das **ações efetivas** em educação federal do governo Lula 3 (jan/2023–set/2026) e do governo Jair Bolsonaro (2019–2022). O governo Jair Bolsonaro é usado como referência (*proxy*) do grupo político de Flávio Bolsonaro, que nunca exerceu cargo executivo. Propostas e promessas de campanha não entram na análise.
