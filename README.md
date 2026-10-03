@@ -7,7 +7,9 @@ Estudo comparativo das **ações efetivas** em educação federal do governo Lul
 - **Responsável:** Guilherme Amaral Avelino (SERG/UFPI).
 - **Licença:** [CC BY 4.0](LICENSE). Pode ser usado com atribuição. Como citar: [CITATION.cff](CITATION.cff).
 
-> **Status:** os números vêm de fontes oficiais lidas por ferramenta automatizada e passaram por verificação independente por amostragem (90,5% confirmados, sem divergência numérica). Os arquivos originais são baixados por `baixar_fontes.sh`. Antes de citar um número, confira na fonte original.
+> **Status:** os números vêm de fontes oficiais lidas por ferramenta automatizada e passaram por verificação independente por amostragem (90,5% confirmados, sem divergência numérica), feita por um agente de IA separado dos coletores. Os arquivos originais são baixados por `baixar_fontes.sh`. Antes de citar um número, confira na fonte original.
+
+> **Aviso sobre validação.** O estudo seguiu um protocolo definido antes da coleta e métodos científicos consolidados e replicáveis: PICOC, hierarquia de evidências, regras de simetria e verificação por amostragem. O pesquisador definiu as perguntas, o protocolo e suas emendas. Coleta, extração, verificação e redação dos relatórios foram feitas de forma automatizada por agentes de inteligência artificial (Claude, da Anthropic). **O estudo não passou por validação humana que ateste as conclusões.** A automação foi uma escolha deliberada: num tema polarizado, o objetivo é reduzir vieses humanos na seleção e na interpretação das evidências. A automação não elimina todo viés, porque os modelos de IA e a disponibilidade desigual de fontes também podem distorcer resultados. Por isso, todos os dados, fontes e decisões estão neste repositório, abertos para auditoria e replicação.
 
 ## Questões de pesquisa
 
