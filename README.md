@@ -1,4 +1,4 @@
-# Educação: ações efetivas do governo Lula 3 × grupo Bolsonaro (2019–2026)
+# Educação: ações efetivas do governo Lula 3 (2023–2026) x grupo Bolsonaro (2019–2022)
 
 > ### Leia os relatórios
 > 1. **[Relatório resumido](relatorios/relatorio_publico_geral.pdf)** (PDF, 7 páginas): os principais resultados em linguagem simples, seguidos de como a pesquisa foi feita.
